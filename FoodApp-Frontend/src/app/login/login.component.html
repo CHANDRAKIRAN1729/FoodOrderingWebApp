@@ -1,0 +1,46 @@
+<div class="container-fluid"> 
+  <div class="row no-gutter"> 
+      <div class="col-md-6 d-none d-md-flex bg-image">
+      </div> 
+      <div class="col-md-6 bg-light"> 
+          <div class="login d-flex align-items-center py-5"> 
+              <div class="container"> 
+                  <div class="row"> 
+                      <div class="col-lg-7 col-xl-6 mx-auto"> 
+                          <h4 class="display-4">LOGIN!</h4> 
+                          <br> 
+<form #login="ngForm" (ngSubmit)="loginUser(login)">
+  <div class="form-group mb-3"> 
+        
+            <input 
+            type="email" 
+            class="form-control rounded-pill border-0 shadow-sm px-4"
+            required
+            ngModel
+            id="email" 
+            name="email"
+            #email="ngModel"
+            placeholder="Email Address">
+  </div>
+  <div class="form-group mb-3"> 
+            <input 
+            type="password" 
+            class="form-control rounded-pill border-0 shadow-sm px-4 text-danger"
+            required
+            ngModel
+            id="password" 
+            name="password"
+            #password="ngModel"
+            placeholder="Password">
+            <br>
+          <br>
+        <button type="submit" class="btn btn-danger btn-block text-uppercase mb-2 rounded-pill shadow-sm" [disabled]="!login.valid">Login</button>
+  </div>
+      </form>
+    </div> 
+  </div> 
+</div> 
+</div> 
+</div> 
+</div>
+</div>

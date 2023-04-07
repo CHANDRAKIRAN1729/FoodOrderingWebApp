@@ -1,0 +1,40 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+<div class="container">
+  <br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <br>
+    <h3 class="text-justify text-center mb-2">Update User</h3>
+    <br>
+    <form #editData="ngForm" (ngSubmit)="editUser(editData)">
+        <div class="form-outline mb-4">
+          <input 
+          type="text" 
+          class="form-control form-control-lg"
+          ngModel
+          required
+          id="name" 
+          name="name"
+          #name="ngModel"
+          [(ngModel)]="selectedUser.data.name">
+        </div>
+
+        <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            required
+            class="form-control form-control-lg"
+            ngModel
+            id="email" 
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="selectedUser.data.email">
+          </div>
+
+        <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="!editData.valid">Submit</button>
+        <br>
+      </form>
+</div>
+<br>
+</div>
+</section>

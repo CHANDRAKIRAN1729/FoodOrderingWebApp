@@ -1,0 +1,61 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+<div class="container">
+  <br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <br>
+    <h3 class="text-justify text-center mb-2">Edit Staff</h3>
+    <br>
+    <form #editData="ngForm" (ngSubmit)="editStaff(editData)">
+        <div class="form-outline mb-4">
+          <input 
+          type="text" 
+          class="form-control form-control-lg"
+          ngModel
+          required
+          id="name" 
+          name="name"
+          #name="ngModel"
+          [(ngModel)]="selectedStaff.name">
+        </div>
+        <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            required
+            class="form-control form-control-lg"
+            ngModel
+            id="email" 
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="selectedStaff.email">
+          </div>
+
+          <div class="form-outline mb-4">
+            <input 
+            type="password" 
+            required
+            class="form-control form-control-lg"
+            ngModel
+            id="password" 
+            name="password"
+            #password="ngModel"
+            [(ngModel)]="selectedStaff.password">
+          </div>
+
+          <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            required
+            class="form-control form-control-lg"
+            ngModel
+            id="phoneNumber" 
+            name="phoneNumber"
+            #phoneNumber="ngModel"
+            [(ngModel)]="selectedStaff.phoneNumber">
+          </div>
+        <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="!editData.valid">Submit</button>
+        <br>
+      </form>
+</div>
+</div>
+</section>

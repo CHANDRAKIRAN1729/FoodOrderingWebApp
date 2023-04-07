@@ -1,0 +1,40 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+<div class="container">
+  <br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <br>
+    <button href="" [routerLink]="['/add-menu']" *ngIf="isManager()" class="btn btn-secondary">Create New Menu</button>
+    <br>
+    <br>
+    <button class="btn btn-primary" *ngIf="isManager()" [routerLink]="['/editmenu',id]">Edit Branch Menu</button>
+    <h3 class="text-justify text-center mb-2">Menu</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of items;">
+            <td>{{p.id}}</td>
+            <td>{{p.branch}}</td>
+            <td>{{p.quantity}}</td>
+            <div class="container" style="background-color:rgba(250, 210, 214, 0.245); border-radius: 10px 15px 15px 10px;">
+            <table>
+              <tr *ngFor="let item of p.items">
+                <td>{{item.name}}</td>
+              </tr>
+            </table> 
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+  </div>
+      
+</div>
+</section>

@@ -1,0 +1,76 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+<br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <h3 class="text-justify text-center mb-2">Edit Item</h3>
+    <form #editData="ngForm" (ngSubmit)="editItem(editData)">
+      <label>Name</label>
+        <div class="form-group">
+          <input 
+          type="text" 
+          class="form-control"
+          ngModel
+          required
+          id="name" 
+          name="name"
+          #name="ngModel"
+          [(ngModel)]="selectedItem.name">
+        </div>
+
+        <label>Description</label>
+        <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control"
+            required
+            ngModel
+            id="description" 
+            name="description"
+            #description="ngModel"
+            [(ngModel)]="selectedItem.description">
+          </div>
+
+          <label>Price</label>
+          <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control"
+            required
+            ngModel
+            id="price" 
+            name="price"
+            #price="ngModel"
+            [(ngModel)]="selectedItem.price">
+          </div>
+
+          <label>Quantity</label>
+          <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control"
+            required
+            ngModel
+            id="quantity" 
+            name="quantity"
+            #quantity="ngModel"
+            [(ngModel)]="selectedItem.quantity">
+          </div>
+
+          <label>availability</label>
+          <div class="form-group">
+            <input 
+            type="text" 
+            class="form-control"
+            required
+            ngModel
+            id="availability" 
+            name="availability"
+            #availability="ngModel"
+            [(ngModel)]="selectedItem.availability">
+          </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!editData.valid">Submit</button>
+      </form>
+      <br>
+</div>
+</section>

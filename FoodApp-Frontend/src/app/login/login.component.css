@@ -1,0 +1,8 @@
+.login, 
+.image{min-height: 100vh}.bg-image{background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background-size: cover;
+background-position: center center}
+
+.input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}

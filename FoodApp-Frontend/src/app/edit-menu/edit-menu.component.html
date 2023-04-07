@@ -1,0 +1,104 @@
+<section class="100 bg-image"
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+<div class="container">
+  <br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <br>
+    <h3 class="text-justify text-center mb-2">Menu</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{result.id}}</td>
+            <td>{{result.branch}}</td>
+            <td>{{result.quantity}}</td>
+            <div class="container" style="background-color:rgba(250, 210, 214, 0.245); border-radius: 10px 15px 15px 10px;">
+            <table>
+              <tr *ngFor="let item of result.items">
+                <td>{{item.name}}</td>
+              </tr>
+            </table> 
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+  </div>
+      
+</div>
+<br>
+<div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <h2 class="text-justify text-center mb-5">Create Menu</h2>
+    <form [formGroup]="userForm">
+          <h3 class="text-justify text-center mb-5">Items</h3>
+        <div formArrayName="items" class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+            <div *ngFor="let child of userForm.get('items')['controls'];let i=index"formGroupName="{{i}}">
+                <hr>
+                <div class="form-outline mb-4">
+                    <input 
+                    type="text" 
+                    class="form-control form-control-lg"
+                    id="name" 
+                    name="name"
+                    formControlName="name"
+                    placeholder="Name">
+                  </div>
+            
+          <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            class="form-control form-control-lg"
+            id="description" 
+            name="description"
+            formControlName="description"
+            placeholder="Description">
+          </div>
+
+          <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            class="form-control form-control-lg"
+            id="availability" 
+            name="availability"
+            formControlName="availability"
+            placeholder="Availability">
+          </div>
+
+          <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            class="form-control form-control-lg"
+            id="price" 
+            name="price"
+            formControlName="price"
+            placeholder="Price">
+          </div>
+
+          <div class="form-outline mb-4">
+            <input 
+            type="text" 
+            class="form-control form-control-lg"
+            id="quantity" 
+            name="quantity"
+            formControlName="quantity"
+            placeholder="Quantity">
+          </div>   
+          <button type="submit" class="btn btn-danger" (click)="removeItem(i)">Remove Item</button>         
+    </div>
+</div>
+<hr>
+<div><button type="submit" class="btn btn-success" (click)="addItem()">New Item</button></div>
+<br>
+<button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="updateMenu()" [disabled]="!userForm.valid">Update Menu</button>
+<br>
+      </form>
+    </div>
+
+</section>

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16" routerLink="home" >
+       <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+       <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+     </svg> 
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active" *ngIf="!isLoggedIn()">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" (click)="getDetails()">
+          Profile
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">{{userName}}</a>
+          <a class="dropdown-item" href="#">{{userEmail}}</a>
+          <a class="dropdown-item" href="#">{{role}}</a>
+        </div>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="admin" *ngIf="!isLoggedIn() && isAdmin()">Admin</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="registration" *ngIf="!isStaff()">Registration</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="branchManagers" *ngIf="!isLoggedIn() && isAdmin()">Managers</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="users" *ngIf="!isLoggedIn() && isStaff()">User</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="staff" *ngIf="!isLoggedIn() && isManager()">Staff</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="items" *ngIf="!isLoggedIn() && (isManager() || isStaff())">Items</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="menus" *ngIf="!isLoggedIn() && (isAdmin()|| isManager() || isStaff())">Menu</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="foodOrders" *ngIf="!isLoggedIn() && (isStaff())">Food Orders</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="create-foodorder" *ngIf="!isLoggedIn() && (isStaff())">New Food Order</a>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-light my-2 my-sm-0" (click)=logout() type="submit" *ngIf="!isLoggedIn()">Logout</button>
+    </form>
+
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-light my-2 my-sm-0" routerLink="login" type="submit" *ngIf="isLoggedIn()">Login</button>
+    </form>
+  </div>
+</nav>
+<router-outlet></router-outlet>

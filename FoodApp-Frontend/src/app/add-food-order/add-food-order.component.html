@@ -1,0 +1,57 @@
+<section class="bg-image"
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+<br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+    <h2 class="text-justify text-center mb-5">New Food Order</h2>
+<h4 class="text-justify text-center mb-5">Select User</h4>
+<form [formGroup]="idForm">
+                    <select 
+                    class="form-control form-control-lg" 
+                    id="user_id" 
+                    name="user_id" 
+                    formControlName="user_id">
+                        <option *ngFor="let p of users" [value]="p.id">{{p.name}} --> ({{p.email}})</option>
+                    </select>
+</form>
+    <form [formGroup]="userForm">
+          <h3 class="text-justify text-center mb-5">Add Items</h3>
+        <div formArrayName="items" class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+            <div *ngFor="let child of userForm.get('items')['controls'];let i=index"formGroupName="{{i}}">
+                <hr>
+                <label>Item Name and Price</label>
+                <div class="form-outline mb-4">
+                    <select 
+                    class="form-control form-control-lg" 
+                    id="role" 
+                    name="role" 
+                    formControlName="id">
+                        <option *ngFor="let p of items" [value]="p.id">{{p.name}}({{p.description}}) ---- Price: {{p.price}}</option>
+                    </select>
+                  </div>
+                  <label>Quantity</label>
+                  <div class="form-outline mb-4">
+                    <select 
+                    class="form-control form-control-lg" 
+                    id="quantity" 
+                    name="quantity" 
+                    formControlName="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                  </div>
+          <button type="submit" class="btn btn-danger" (click)="removeItem(i)">Remove Item</button>         
+    </div>
+</div>
+<hr>
+<div><button type="submit" class="btn btn-success" (click)="addItem()">New Item</button></div>
+<br>
+ <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="createFoodOrder()" [disabled]="!userForm.valid && !idForm.valid">Order</button>
+<br>
+      </form>
+    </div>
+
+
+

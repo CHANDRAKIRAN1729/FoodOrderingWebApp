@@ -1,0 +1,32 @@
+<section class="vh-100 bg-image" 
+  style="background-image: url('https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=1600');background-attachment:fixed;">
+  <br>
+  <div class="container" style="background-color:whitesmoke; border-radius: 10px 15px 15px 10px;">
+  <div class="container">
+    <h3 class="text-justify text-center mb-2">Admins</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Role</th>
+            <th scope="col">Update</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of admins;">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.email}}</td>
+            <td>{{p.phoneNumber}}</td>
+            <td>{{p.role}}</td>
+            <td><button class ="btn btn-primary" type="button" [routerLink]="['/edit-admin',p.id]" *ngIf="isAdmin(p.id)">Update</button></td>
+          </tr>
+        </tbody>
+      </table>   
+      <br>
+</div>
+  </div>
+</section>
